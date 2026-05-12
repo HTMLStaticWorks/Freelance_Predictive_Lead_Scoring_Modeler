@@ -1,0 +1,37 @@
+/* 
+   Scorelytics - RTL Support
+*/
+
+[dir="rtl"] {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .text-end {
+    text-align: left !important;
+}
+
+[dir="rtl"] .text-start {
+    text-align: right !important;
+}
+
+/* Adjusting iconography/transforms */
+[dir="rtl"] .btn i, 
+[dir="rtl"] .nav-link i {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+[dir="rtl"] .chevron-right {
+    transform: rotate(180deg);
+}

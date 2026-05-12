@@ -1,0 +1,39 @@
+/* 
+   Scorelytics - Dark Mode Overrides
+*/
+
+[data-theme='dark'] {
+    --bg-light: #020617;
+    --bg-white: #020617;
+    --bg-dark: #020617;
+    --bg-card: #0F172A;
+
+    --text-main: #F8FAFC;
+    --text-muted: #CBD5E1;
+    --text-light: #94A3B8;
+
+    --primary-color: #F8FAFC;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+}
+
+[data-theme='dark'] .card-custom {
+    border-color: var(--border-color);
+}
+
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3,
+[data-theme='dark'] h4,
+[data-theme='dark'] h5,
+[data-theme='dark'] h6 {
+    color: var(--primary-color);
+}
+
+[data-theme='dark'] .text-muted {
+    color: var(--text-muted) !important;
+}
