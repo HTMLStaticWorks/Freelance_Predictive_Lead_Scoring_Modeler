@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Sales Team Portal - Scorelytics</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+
+    <style>
+        .dropzone {
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 100px 0 100px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dropzone:hover {
+            border-color: var(--accent-color);
+            background: rgba(122, 78, 56, 0.02);
+        }
+    </style>
+</head>
+
+<body class="bg-body">
+
+    <div class="dashboard-wrapper">
+        <!-- Mobile Header (Sticky) -->
+        <header class="mobile-header d-lg-none px-4 py-3 bg-black text-white border-bottom border-white border-opacity-10 d-flex justify-content-between align-items-center">
+            <a class="d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+                <div class="bg-primary text-white p-1 rounded-2 d-flex">
+                    <i class="ph-bold ph-chart-line-up fs-5"></i>
+                </div>
+                <span class="fw-bold fs-5 tracking-tight text-white">SCORELYTICS</span>
+            </a>
+            <button id="sidebarMobileToggle" class="btn text-white p-0">
+                <i class="ph-bold ph-list fs-2"></i>
+            </button>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="d-flex flex-column flex-shrink-0">
+            <div class="p-4 mb-3 d-none d-lg-block">
+                <a class="d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+                    <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                        <i class="ph-bold ph-chart-line-up fs-4"></i>
+                    </div>
+                    <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
+                </a>
+            </div>
+
+            <nav class="nav nav-pills flex-column mb-auto">
+                <a href="#overview" class="nav-link active"><i class="ph ph-squares-four"></i> <span>Overview</span></a>
+                <a href="#upload" class="nav-link"><i class="ph ph-cloud-arrow-up"></i> <span>Upload CRM Data</span></a>
+                <a href="#accuracy" class="nav-link"><i class="ph ph-graph"></i> <span>Model Accuracy</span></a>
+                <a href="#leads" class="nav-link"><i class="ph ph-users-three"></i> <span>Lead Prioritization</span></a>
+                <a href="#settings" class="nav-link"><i class="ph ph-gear"></i> <span>Settings</span></a>
+            </nav>
+
+            <div class="p-4 border-top border-white border-opacity-5 mt-auto">
+                <div class="d-flex gap-2 mb-4">
+                    <button class="nav-icon-btn theme-toggle-btn w-50" title="Toggle Theme">
+                        <i class="ph ph-moon theme-toggle-icon"></i>
+                    </button>
+                    <button class="nav-icon-btn rtl-toggle-btn w-50" title="Toggle RTL">
+                        <i class="ph ph-arrows-left-right"></i>
+                    </button>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <img src="https://i.pravatar.cc/100?u=marcus" class="rounded-circle" width="32" height="32"
+                        alt="Avatar">
+                    <div class="overflow-hidden">
+                        <div class="small fw-bold text-white text-truncate">Marcus T.</div>
+                        <div class="xsmall text-muted text-truncate">Admin</div>
+                    </div>
+                    <a href="index.html" class="ms-auto text-danger" title="Logout"><i class="ph ph-sign-out fs-5"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="content" class="flex-grow-1 overflow-auto">
+            <!-- Mobile Secondary Utility (Not Sticky) -->
+            <div class="d-lg-none bg-black text-white px-4 py-3 mb-4 d-flex justify-content-between align-items-center border-bottom border-white border-opacity-5">
+                <span class="fw-bold small opacity-75 text-nowrap">Sales Team Portal</span>
+                <div class="d-flex align-items-center gap-3 flex-grow-1 justify-content-end">
+                    <div class="input-group input-group-sm" style="max-width: 150px;">
+                        <input type="text" class="form-control bg-white bg-opacity-10 border-0 text-white" placeholder="Search...">
+                        <span class="input-group-text bg-white bg-opacity-10 border-0 text-white"><i class="ph ph-magnifying-glass"></i></span>
+                    </div>
+                    <div class="position-relative">
+                        <i class="ph ph-bell fs-5 text-white opacity-75"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem; padding: 0.25em 0.4em;">3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topbar (Desktop Only) -->
+            <div class="d-none d-lg-flex justify-content-between align-items-center mb-5 bg-body py-3">
+                <div class="d-none d-lg-block">
+                    <h4 class="fw-bold mb-0">Sales Team Portal</h4>
+                </div>
+                <div class="d-flex align-items-center gap-3 ms-auto">
+                    <div class="d-none d-md-flex align-items-center gap-3">
+                        <div class="position-relative">
+                            <i class="ph ph-bell fs-5 text-muted"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                style="font-size: 0.6rem;">3</span>
+                        </div>
+                        <div class="input-group input-group-sm" style="width: 200px;">
+                            <span class="input-group-text bg-light border-0"><i
+                                    class="ph ph-magnifying-glass"></i></span>
+                            <input type="text" class="form-control bg-light border-0" placeholder="Search leads...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Sections -->
+
+            <!-- Section: Overview -->
+            <div id="overview" class="dashboard-section">
+                <!-- Stats Bar -->
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3">
+                        <div class="kpi-card h-100">
+                            <div class="small text-muted mb-2">Total Leads Scored</div>
+                            <div class="kpi-value">8,400</div>
+                            <div class="mt-2"><span class="kpi-delta delta-up"><i class="ph ph-caret-up"></i> 12%</span>
+                                <span class="small text-muted ms-1">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card h-100">
+                            <div class="small text-muted mb-2">Model AUC Score</div>
+                            <div class="kpi-value text-primary">0.91</div>
+                            <div class="mt-2 text-muted small">Validated: May 08, 2026</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card h-100">
+                            <div class="small text-muted mb-2">Conversion Uplift</div>
+                            <div class="kpi-value text-success">3.2x</div>
+                            <div class="mt-2 text-muted small">Based on A/B testing</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card h-100">
+                            <div class="small text-muted mb-2">API Call Volume</div>
+                            <div class="kpi-value">142k</div>
+                            <div class="mt-2 text-muted small">Last 30 days</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="card border-0 p-4 mb-4">
+                            <h6 class="fw-bold mb-4">Conversion Rate vs Baseline</h6>
+                            <canvas id="conversionChart" height="300"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card border-0 p-4 h-100">
+                            <h6 class="fw-bold mb-4">Lead Tier Distribution</h6>
+                            <canvas id="distributionChart" height="300"></canvas>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-between small mb-2">
+                                    <span>Priority A (Top 20%)</span>
+                                    <span class="fw-bold text-success">1,680</span>
+                                </div>
+                                <div class="d-flex justify-content-between small mb-2">
+                                    <span>Priority B</span>
+                                    <span class="fw-bold text-primary">2,100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Upload (Hidden by default) -->
+            <div id="upload" class="dashboard-section d-none">
+                <h5 class="fw-bold mb-4">Upload CRM Data</h5>
+                <div class="card border-0 p-5 mb-4">
+                    <div id="dropzone" class="dropzone">
+                        <i class="ph ph-cloud-arrow-up display-4 text-primary mb-3"></i>
+                        <h6>Drag & Drop CSV/Excel File</h6>
+                        <p class="text-muted small">or click to browse your computer</p>
+                    </div>
+                    <div id="upload-status" class="mt-4 d-none">
+                        <!-- Success alert injected via JS -->
+                    </div>
+                </div>
+
+                <h6 class="fw-bold mb-3">Field Mapping (Preview)</h6>
+                <div class="card border-0 p-4 mb-4">
+                    <table class="table table-borderless small mb-0">
+                        <thead>
+                            <tr class="text-muted border-bottom">
+                                <th class="pb-3">CRM Column Name</th>
+                                <th class="pb-3">Data Type</th>
+                                <th class="pb-3">Model Mapping</th>
+                                <th class="pb-3 text-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>job_title_raw</td>
+                                <td>String</td>
+                                <td><span class="badge bg-primary text-white">job_title_score</span></td>
+                                <td class="text-end"><a href="#" class="text-muted"><i class="ph ph-pencil"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>emp_count</td>
+                                <td>Integer</td>
+                                <td><span class="badge bg-primary text-white">company_size</span></td>
+                                <td class="text-end"><a href="#" class="text-muted"><i class="ph ph-pencil"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section: Accuracy (Hidden by default) -->
+            <div id="accuracy" class="dashboard-section d-none">
+                <h5 class="fw-bold mb-4">Model Performance Metrics</h5>
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 p-4 h-100">
+                            <h6 class="fw-bold mb-4">ROC Curve (AUC: 0.91)</h6>
+                            <canvas id="accuracyAUCChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card border-0 p-4 h-100">
+                            <h6 class="fw-bold mb-4">Feature Importance</h6>
+                            <canvas id="accuracyFeatureChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 p-4">
+                    <h6 class="fw-bold mb-4">Confusion Matrix</h6>
+                    <div class="row g-0 text-center">
+                        <div class="col-3 p-4 bg-light border">
+                            <div class="small opacity-50">True Positive</div>
+                            <div class="h4 fw-bold text-success mb-0">2,410</div>
+                        </div>
+                        <div class="col-3 p-4 bg-light border">
+                            <div class="small opacity-50">False Positive</div>
+                            <div class="h4 fw-bold text-danger mb-0">142</div>
+                        </div>
+                        <div class="col-3 p-4 bg-light border">
+                            <div class="small opacity-50">True Negative</div>
+                            <div class="h4 fw-bold text-success mb-0">5,620</div>
+                        </div>
+                        <div class="col-3 p-4 bg-light border">
+                            <div class="small opacity-50">False Negative</div>
+                            <div class="h4 fw-bold text-danger mb-0">228</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Lead List -->
+            <div id="leads" class="dashboard-section d-none">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Lead Prioritization List</h5>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary btn-sm"><i class="ph ph-export"></i> Export CSV</button>
+                        <button class="btn btn-primary btn-sm">Push to CRM</button>
+                    </div>
+                </div>
+
+                <ul class="nav nav-tabs border-0 mb-4" id="tierTabs">
+                    <li class="nav-item"><a class="nav-link active" href="#">All Leads</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Priority A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Priority B</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Unscored</a></li>
+                </ul>
+
+                <div class="table-responsive border rounded-3 overflow-hidden">
+                    <table class="table table-custom align-middle mb-0" style="min-width: 800px;">
+                        <thead>
+                            <tr>
+                                <th class="ps-4 py-3">Lead Name</th>
+                                <th>Company</th>
+                                <th>Score</th>
+                                <th>Tier</th>
+                                <th>Top Signal</th>
+                                <th class="pe-4 text-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="ps-4 fw-semibold">Sarah Jenkins</td>
+                                <td>CloudScale Inc.</td>
+                                <td><span class="fw-bold">94</span></td>
+                                <td><span class="badge bg-success">Tier A</span></td>
+                                <td class="small">High Web Intent</td>
+                                <td class="pe-4 text-end"><button class="btn btn-sm btn-light"><i
+                                            class="ph ph-dots-three"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 fw-semibold">David Chen</td>
+                                <td>Global FinTech</td>
+                                <td><span class="fw-bold">88</span></td>
+                                <td><span class="badge bg-success">Tier A</span></td>
+                                <td class="small">Job Title Fit</td>
+                                <td class="pe-4 text-end"><button class="btn btn-sm btn-light"><i
+                                            class="ph ph-dots-three"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section: Settings -->
+            <div id="settings" class="dashboard-section d-none">
+                <h5 class="fw-bold mb-4">Account & Portal Settings</h5>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 p-4">
+                            <h6 class="fw-bold mb-3">Profile Information</h6>
+                            <div class="mb-3">
+                                <label class="small text-muted mb-1">Full Name</label>
+                                <input type="text" class="form-control" value="Marcus T.">
+                            </div>
+                            <div class="mb-3">
+                                <label class="small text-muted mb-1">Email Address</label>
+                                <input type="email" class="form-control" value="marcus@cloudscale.com">
+                            </div>
+                            <button class="btn btn-primary btn-sm">Update Profile</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card border-0 p-4">
+                            <h6 class="fw-bold mb-3">Model Preferences</h6>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="autoSync" checked>
+                                <label class="form-check-label small" for="autoSync">Auto-sync scores to CRM</label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="emailAlerts">
+                                <label class="form-check-label small" for="emailAlerts">Email alerts for High Intent
+                                    leads</label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="small text-muted mb-1">Scoring Frequency</label>
+                                <select class="form-select form-select-sm">
+                                    <option>Real-time</option>
+                                    <option>Every 6 hours</option>
+                                    <option>Daily</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Scroll Top -->
+    <button id="scroll-top" title="Go to top">
+        <i class="ph-bold ph-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script>
+        // Init Dashboard Charts
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctxConv = document.getElementById('conversionChart').getContext('2d');
+            initConversionUpliftChart(ctxConv);
+
+            const ctxDist = document.getElementById('distributionChart').getContext('2d');
+            initLeadDistributionChart(ctxDist);
+
+            const ctxAcc = document.getElementById('accuracyAUCChart').getContext('2d');
+            initAUCChart(ctxAcc);
+
+            const ctxFeat = document.getElementById('accuracyFeatureChart').getContext('2d');
+            initFeatureImportanceChart(ctxFeat);
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

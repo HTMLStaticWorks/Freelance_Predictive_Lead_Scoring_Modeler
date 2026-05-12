@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Predictive Sales Intelligence - Scorelytics</title>
+    <meta name="description"
+        content="Professional data science consulting services for B2B sales organizations. We offer model audits, full build-outs, and ongoing optimization.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+
+    <style>
+        .hero-section {
+            background: #7A4E38;
+            padding: 100px 0 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .service-card {
+            border-radius: 24px;
+            padding: 0;
+            background: var(--bg-white);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .service-card {
+            text-align: center;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .service-card-content {
+            padding: 30px;
+        }
+
+        .tier-card {
+            border-radius: 20px;
+            padding: 30px;
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+        }
+
+        .tier-card:hover {
+            background: var(--bg-white);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-5px);
+        }
+
+        .tier-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Dark Mode Sales Velocity Visibility */
+        [data-theme="dark"] .expertise-badge {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white !important;
+        }
+
+        [data-theme="dark"] .expertise-icon {
+            background-color: var(--primary-color) !important;
+            color: var(--bg-card) !important;
+        }
+
+        /* Dark Mode Card Borders */
+        [data-theme="dark"] .service-card,
+        [data-theme="dark"] .tier-card {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm bg-white">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                    <i class="ph-bold ph-chart-line-up fs-4"></i>
+                </div>
+                <span class="fw-bold fs-4 tracking-tight text-primary brand-text">SCORELYTICS</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <i class="ph-bold ph-list fs-2 text-primary"></i>
+            </button>
+
+            <!-- Offcanvas Menu (Slide from Right) -->
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header border-bottom">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <div class="bg-primary text-white p-1 rounded-2 d-flex">
+                            <i class="ph-bold ph-chart-line-up fs-6"></i>
+                        </div>
+                        <span class="fw-bold fs-6 tracking-tight text-primary brand-text">SCORELYTICS</span>
+                    </a>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+                            <ul class="dropdown-menu border-0 shadow-sm">
+                                <li><a class="dropdown-item" href="index.html">Home 1 - Corporate</a></li>
+                                <li><a class="dropdown-item" href="home-2.html">Home 2 - Portfolio</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item mt-3 mt-lg-0">
+                            <div class="nav-toggles d-flex align-items-center gap-2">
+                                <a href="dashboard.html" class="nav-icon-btn" title="Dashboard">
+                                    <i class="ph ph-squares-four"></i>
+                                </a>
+                                <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme">
+                                    <i class="ph ph-moon theme-toggle-icon"></i>
+                                </button>
+                                <button class="nav-icon-btn rtl-toggle-btn" title="Toggle RTL">
+                                    <i class="ph ph-arrows-left-right"></i>
+                                </button>
+                                <a href="signup.html" class="btn btn-primary ms-lg-2 px-4">Signup</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container position-relative z-1 text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill mb-3 fw-bold">Professional
+                        Services</span>
+                    <h1 class="display-3 fw-bold mb-4 text-white">Data Science for Sales</h1>
+                    <p class="lead text-white mb-0 opacity-75">We don't just build models; we engineer revenue
+                        pipelines. Our services bridge the gap between raw data and actual sales outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Our Core Capabilities</h2>
+                <p class="text-muted">Specialized expertise in the intersection of ML and B2B sales.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="service-card">
+                        <img src="assets/images/service1.jpg" alt="Audit">
+                        <div class="service-card-content">
+                            <h4 class="fw-bold mb-3">CRM Data Audit</h4>
+                            <p class="text-muted small mb-4">A deep diagnostic of your historical CRM data to identify
+                                signal quality, fill rates, and hidden winning attributes.</p>
+                            <a href="service-details.html" class="btn btn-link text-primary p-0 fw-bold">Explore Audit
+                                <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <img src="assets/images/service2.jpg" alt="Implementation">
+                        <div class="service-card-content">
+                            <h4 class="fw-bold mb-3">Model Implementation</h4>
+                            <p class="text-muted small mb-4">End-to-end development and deployment of custom XGBoost and
+                                Random Forest models into your tech stack.</p>
+                            <a href="service-details.html" class="btn btn-link text-primary p-0 fw-bold">Explore
+                                Implementation <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <img src="assets/images/service3.jpg" alt="Optimization">
+                        <div class="service-card-content">
+                            <h4 class="fw-bold mb-3">RevOps Optimization</h4>
+                            <p class="text-muted small mb-4">Aligning your sales workflows with model outputs to ensure
+                                reps
+                                are actually acting on high-probability leads.</p>
+                            <a href="service-details.html" class="btn btn-link text-primary p-0 fw-bold">Explore
+                                Optimization <i class="ph-bold ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Service Tiers (New) -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-7">
+                    <h2 class="fw-bold">Engagement Models</h2>
+                    <p class="text-muted">Flexible ways to work together based on your team's internal resources.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="tier-card">
+                        <h5 class="fw-bold text-primary mb-3">The Audit</h5>
+                        <p class="small text-muted mb-4">A one-time feasibility study to determine if your data is ready
+                            for predictive scoring.</p>
+                        <ul class="list-unstyled small mb-0 d-grid gap-2">
+                            <li><i class="ph-bold ph-check text-success"></i> Data Hygiene Report</li>
+                            <li><i class="ph-bold ph-check text-success"></i> Signal Importance Ranking</li>
+                            <li><i class="ph-bold ph-check text-success"></i> Implementation Roadmap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tier-card">
+                        <h5 class="fw-bold text-primary mb-3">Full Build-Out</h5>
+                        <p class="small text-muted mb-4">End-to-end model development and CRM integration with 30 days
+                            of monitoring.</p>
+                        <ul class="list-unstyled small mb-0 d-grid gap-2">
+                            <li><i class="ph-bold ph-check text-success"></i> Custom ML Model</li>
+                            <li><i class="ph-bold ph-check text-success"></i> CRM API Integration</li>
+                            <li><i class="ph-bold ph-check text-success"></i> Sales Training Session</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tier-card">
+                        <h5 class="fw-bold text-primary mb-3">Model Retainer</h5>
+                        <p class="small text-muted mb-4">Ongoing retraining and optimization to adapt to changing market
+                            dynamics.</p>
+                        <ul class="list-unstyled small mb-0 d-grid gap-2">
+                            <li><i class="ph-bold ph-check text-success"></i> Quarterly Retraining</li>
+                            <li><i class="ph-bold ph-check text-success"></i> New Signal Engineering</li>
+                            <li><i class="ph-bold ph-check text-success"></i> Priority Slack Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Core Expertise (New) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="badge bg-primary text-white expertise-badge mb-3 px-3 py-2 rounded-pill">Why
+                        Scorelytics?</span>
+                    <h2 class="display-5 fw-bold mb-4">Data Science Built for <span class="text-primary">Sales
+                            Velocity</span></h2>
+                    <p class="text-muted mb-5">Generic lead scoring rules fail because they lack the nuance of actual
+                        historical outcomes. We bridge that gap with scientific precision.</p>
+
+                    <div class="d-grid gap-4">
+                        <div class="d-flex gap-4">
+                            <div class="bg-primary p-3 rounded-3 text-white expertise-icon h-100">
+                                <i class="ph-bold ph-shield-check fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-2">Zero Data Leakage</h6>
+                                <p class="small text-muted mb-0">We ensure models are trained correctly, preventing
+                                    "future-looking" data from inflating accuracy results.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4">
+                            <div class="bg-primary p-3 rounded-3 text-white expertise-icon h-100">
+                                <i class="ph-bold ph-lightning fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-2">Explainable AI</h6>
+                                <p class="small text-muted mb-0">Reps get reason codes for every score, explaining
+                                    exactly *why* a lead was ranked high or low.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="bg-dark p-5 rounded-4 text-white shadow-lg">
+                        <h4 class="fw-bold mb-4">Methodology Snapshot</h4>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-borderless small mb-0">
+                                <thead>
+                                    <tr class="opacity-50">
+                                        <th>PHASE</th>
+                                        <th>OUTPUT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-bottom border-white border-opacity-10">
+                                        <td class="py-3 text-white">EDA</td>
+                                        <td class="py-3 text-white">Feature Importance Plot</td>
+                                    </tr>
+                                    <tr class="border-bottom border-white border-opacity-10">
+                                        <td class="py-3 text-white">ENGINEERING</td>
+                                        <td class="py-3 text-white">Intent Scored Features</td>
+                                    </tr>
+                                    <tr class="border-bottom border-white border-opacity-10">
+                                        <td class="py-3 text-white">TUNING</td>
+                                        <td class="py-3 text-white">Validated AUC > 0.85</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 text-white">SYNC</td>
+                                        <td class="py-3 text-white">CRM Push API</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white border-top border-white border-opacity-10">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-4" href="#">
+                        <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                            <i class="ph-bold ph-chart-line-up fs-4"></i>
+                        </div>
+                        <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
+                    </a>
+                    <p class="text-light opacity-50 small pe-lg-5">Predictive Lead Scoring & Revenue Intelligence for
+                        modern B2B sales organizations.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-linkedin-logo"></i></a>
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-github-logo"></i></a>
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-twitter-logo"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Solutions</h6>
+                    <ul class="list-unstyled d-grid gap-2 small opacity-75">
+                        <li><a href="solutions.html" class="text-white">Lead Scoring</a></li>
+                        <li><a href="solutions.html" class="text-white">Churn Prediction</a></li>
+                        <li><a href="solutions.html" class="text-white">ICP Analysis</a></li>
+                        <li><a href="solutions.html" class="text-white">API Integration</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Company</h6>
+                    <ul class="list-unstyled d-grid gap-2 small opacity-75">
+                        <li><a href="about.html" class="text-white">About Marcus</a></li>
+                        <li><a href="pricing.html" class="text-white">Pricing</a></li>
+                        <li><a href="blog.html" class="text-white">Blog</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6 class="fw-bold mb-4">Weekly Insights</h6>
+                    <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email"
+                            class="form-control bg-transparent border-white border-opacity-20 text-white"
+                            placeholder="Email address">
+                        <button class="btn btn-primary">Join</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-5 border-white border-opacity-10">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="small opacity-50 mb-0">&copy; 2026 Scorelytics Data Science. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline mb-0 small opacity-50">
+                        <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li class="list-inline-item mx-3"><a href="#" class="text-white">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white" id="rtl-toggle">RTL Mode</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <button id="scroll-top" title="Go to top">
+        <i class="ph-bold ph-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+
+</html>
+</script>
+</body>
+
+</html>

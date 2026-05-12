@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Book Your Lead Scoring Audit - Scorelytics</title>
+    <meta name="description"
+        content="Ready to optimize your sales pipeline? Book a free discovery call with Marcus Thornfield to discuss your data and modeling needs.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+
+    <style>
+        .hero-section {
+            background: #7A4E38;
+            padding: 100px 0 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .contact-card {
+            border-radius: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: var(--bg-white);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--bg-light);
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link i {
+            color: inherit;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: #ffffff !important;
+            transform: translateY(-3px);
+        }
+
+        .social-link:hover i {
+            color: #ffffff !important;
+        }
+
+        /* Light Mode: Solid Brand Style (matching image) */
+        [data-theme="light"] .contact-info-item {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+        }
+
+        [data-theme="light"] .contact-info-item h6,
+        [data-theme="light"] .contact-info-item p {
+            color: white !important;
+        }
+
+        [data-theme="light"] .contact-info-icon {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+
+        #theme-toggle {
+            background: var(--primary-color) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 12px !important;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #theme-toggle:hover {
+            transform: rotate(15deg) scale(1.1);
+            background: var(--secondary-color) !important;
+        }
+
+        /* Dark Mode: Website Background Style */
+        [data-theme="dark"] .contact-info-item {
+            background-color: var(--bg-card) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: white !important;
+        }
+
+        [data-theme="dark"] .contact-info-item h6,
+        [data-theme="dark"] .contact-info-item p {
+            color: white !important;
+        }
+
+        [data-theme="dark"] .contact-info-icon {
+            background-color: var(--bg-card) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Shared Styles */
+        .contact-info-item {
+            padding: 20px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-info-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info-item:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm bg-white">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                    <i class="ph-bold ph-chart-line-up fs-4"></i>
+                </div>
+                <span class="fw-bold fs-4 tracking-tight text-primary brand-text">SCORELYTICS</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <i class="ph-bold ph-list fs-2 text-primary"></i>
+            </button>
+
+            <!-- Offcanvas Menu -->
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header border-bottom">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <div class="bg-primary text-white p-1 rounded-2 d-flex">
+                            <i class="ph-bold ph-chart-line-up fs-6"></i>
+                        </div>
+                        <span class="fw-bold fs-6 tracking-tight text-primary brand-text">SCORELYTICS</span>
+                    </a>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+                            <ul class="dropdown-menu border-0 shadow-sm">
+                                <li><a class="dropdown-item" href="index.html">Home 1 - Corporate</a></li>
+                                <li><a class="dropdown-item" href="home-2.html">Home 2 - Portfolio</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                        <li class="nav-item mt-3 mt-lg-0">
+                            <div class="nav-toggles d-flex align-items-center gap-2">
+                                <a href="dashboard.html" class="nav-icon-btn" title="Dashboard">
+                                    <i class="ph ph-squares-four"></i>
+                                </a>
+                                <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme">
+                                    <i class="ph ph-moon theme-toggle-icon"></i>
+                                </button>
+                                <button class="nav-icon-btn rtl-toggle-btn" title="Toggle RTL">
+                                    <i class="ph ph-arrows-left-right"></i>
+                                </button>
+                                <a href="signup.html" class="btn btn-primary ms-lg-2 px-4">Signup</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container position-relative z-1">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge px-3 py-2 rounded-pill mb-3"
+                        style="background: rgba(255,255,255,0.15) !important; color: white !important; border: 1px solid rgba(255,255,255,0.2);">Let's
+                        Connect</span>
+                    <h1 class="display-3 fw-bold mb-4 text-white">Get in Touch</h1>
+                    <p class="lead text-white mb-0 opacity-75">Ready to optimize your sales pipeline? Reach out for a
+                        free lead scoring audit or technical discovery call.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-8 order-1 order-lg-2" data-aos="fade-left">
+                    <div class="contact-card p-4 p-md-5">
+                        <h3 class="fw-bold mb-4 text-center">Send a Message</h3>
+                        <form class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Full Name</label>
+                                    <input type="text" class="form-control bg-light border-0 py-3"
+                                        placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Email Address</label>
+                                    <input type="email" class="form-control bg-light border-0 py-3"
+                                        placeholder="name@company.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Company Name</label>
+                                    <input type="text" class="form-control bg-light border-0 py-3"
+                                        placeholder="Acme Inc." required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Lead Volume (Monthly)</label>
+                                    <select class="form-select bg-light border-0 py-3" required>
+                                        <option value="" selected disabled>Select volume</option>
+                                        <option>
+                                            < 1,000</option>
+                                        <option>1,000 - 10,000</option>
+                                        <option>10,000+</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">How can I help?</label>
+                                    <textarea class="form-control bg-light border-0 py-3" rows="5"
+                                        placeholder="Describe your project or lead scoring challenges..."></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="col-lg-4 order-2 order-lg-1" data-aos="fade-right">
+                    <div class="d-grid gap-4 mb-5">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 56px; height: 56px;">
+                                <i class="ph-bold ph-envelope fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Email Me</h6>
+                                <p class="text-muted small mb-0">hello@scorelytics.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 56px; height: 56px;">
+                                <i class="ph-bold ph-map-pin fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Location</h6>
+                                <p class="text-muted small mb-0">London, United Kingdom</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon bg-primary bg-opacity-10 text-primary p-3 rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 56px; height: 56px;">
+                                <i class="ph-bold ph-calendar fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Office Hours</h6>
+                                <p class="text-muted small mb-0">Mon - Fri, 9am - 6pm GMT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h5 class="fw-bold mb-4">Connect Socially</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="social-link" title="LinkedIn"><i
+                                    class="ph-fill ph-linkedin-logo"></i></a>
+                            <a href="#" class="social-link" title="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                            <a href="#" class="social-link" title="GitHub"><i class="ph-fill ph-github-logo"></i></a>
+                            <a href="#" class="social-link" title="Dribbble"><i
+                                    class="ph-fill ph-dribbble-logo"></i></a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section-padding py-0">
+        <div class="container-fluid p-0">
+            <div class="map-container" data-aos="fade-up">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.819243221671!2d-0.12775829999999997!3d51.5073509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c3216d1d4d%3A0x6a05e26a454d6a0f!2sLondon!5e0!3m2!1sen!2suk!4v1715500000000!5m2!1sen!2suk"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white border-top border-white border-opacity-10">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-4" href="#">
+                        <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                            <i class="ph-bold ph-chart-line-up fs-4"></i>
+                        </div>
+                        <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
+                    </a>
+                    <p class="text-light opacity-50 small pe-lg-5">Predictive Lead Scoring & Revenue Intelligence for
+                        modern B2B sales organizations.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-linkedin-logo"></i></a>
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-github-logo"></i></a>
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-twitter-logo"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Solutions</h6>
+                    <ul class="list-unstyled d-grid gap-2 small opacity-75">
+                        <li><a href="services.html" class="text-white">Lead Scoring</a></li>
+                        <li><a href="services.html" class="text-white">Churn Prediction</a></li>
+                        <li><a href="services.html" class="text-white">ICP Analysis</a></li>
+                        <li><a href="services.html" class="text-white">API Integration</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Company</h6>
+                    <ul class="list-unstyled d-grid gap-2 small opacity-75">
+                        <li><a href="about.html" class="text-white">About Marcus</a></li>
+                        <li><a href="pricing.html" class="text-white">Pricing</a></li>
+                        <li><a href="blog.html" class="text-white">Blog</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6 class="fw-bold mb-4">Weekly Insights</h6>
+                    <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email"
+                            class="form-control bg-transparent border-white border-opacity-20 text-white"
+                            placeholder="Email address">
+                        <button class="btn btn-primary">Join</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-5 border-white border-opacity-10">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="small opacity-50 mb-0">&copy; 2026 Scorelytics Data Science. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline mb-0 small opacity-50">
+                        <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li class="list-inline-item mx-3"><a href="#" class="text-white">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white" id="rtl-toggle">RTL Mode</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <button id="scroll-top" title="Go to top">
+        <i class="ph-bold ph-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+
+</html>

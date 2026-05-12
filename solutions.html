@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions | Predictive Sales Intelligence - Scorelytics</title>
+    <meta name="description"
+        content="Explore custom ML solutions for B2B sales. From predictive lead scoring to churn analysis, we integrate high-accuracy models into your existing CRM.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+
+    <style>
+        .hero-section {
+            background: #7A4E38;
+            padding: 160px 0 100px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .solution-card {
+            border-radius: 24px;
+            padding: 40px;
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 30px;
+            bottom: -30px;
+            width: 2px;
+            background: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        .process-step:last-child::before {
+            display: none;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Dark Mode Fixes */
+        [data-theme="dark"] .solution-card {
+            border-color: transparent !important;
+        }
+
+        [data-theme="dark"] .step-number {
+            color: var(--bg-light) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-transparent">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                    <i class="ph-bold ph-chart-line-up fs-4"></i>
+                </div>
+                <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <i class="ph-bold ph-list fs-2 text-primary"></i>
+            </button>
+
+            <!-- Offcanvas Menu -->
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header border-bottom">
+                    <a class="d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+                        <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                            <i class="ph-bold ph-chart-line-up fs-4"></i>
+                        </div>
+                        <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
+                    </a>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
+                        <!-- Mobile/Tablet Home Links (Separate) -->
+                        <li class="nav-item d-lg-none"><a class="nav-link" href="index.html">Home 1 - Corporate</a></li>
+                        <li class="nav-item d-lg-none"><a class="nav-link" href="home-2.html">Home 2 - Portfolio</a></li>
+
+                        <!-- Desktop Home Dropdown -->
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+                            <ul class="dropdown-menu border-0 shadow-sm">
+                                <li><a class="dropdown-item" href="index.html">Home 1 - Corporate</a></li>
+                                <li><a class="dropdown-item" href="home-2.html">Home 2 - Portfolio</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="solutions.html">Solutions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-toggles ms-lg-4 d-flex align-items-center gap-3 mt-4 mt-lg-0">
+                        <a href="dashboard.html" class="nav-icon-btn" title="Dashboard">
+                            <i class="ph ph-squares-four"></i>
+                        </a>
+                        <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme">
+                            <i class="ph ph-moon theme-toggle-icon"></i>
+                        </button>
+                        <button class="nav-icon-btn rtl-toggle-btn" title="Toggle RTL">
+                            <i class="ph ph-arrows-left-right"></i>
+                        </button>
+                        <a href="signup.html" class="btn btn-primary rounded-pill px-4 ms-lg-2">Signup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container position-relative z-1 text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill mb-3 fw-bold">Solutions</span>
+                    <h1 class="display-3 fw-bold mb-4 text-white">ML Solutions for Modern Sales</h1>
+                    <p class="lead text-white mb-0 opacity-75">From lead prioritization to churn prevention, we build
+                        custom predictive models that drive measurable ROI directly within your CRM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Core Solutions Hub -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="solution-card">
+                        <div class="icon-box"><i class="ph-bold ph-user-focus"></i></div>
+                        <h4 class="fw-bold mb-3">Predictive Lead Scoring</h4>
+                        <p class="text-muted mb-4">Rank your inbound and outbound pipeline by conversion probability
+                            using historical winning patterns from your CRM.</p>
+                        <ul class="list-unstyled small d-grid gap-2 mb-0">
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> XGBoost/Ensemble Models</li>
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> Reason Codes for Reps</li>
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> Automated Tiering (A/B/C)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="solution-card">
+                        <div class="icon-box"><i class="ph-bold ph-warning-circle"></i></div>
+                        <h4 class="fw-bold mb-3">Churn Prediction</h4>
+                        <p class="text-muted mb-4">Identify accounts at risk of churning 60 days before they cancel,
+                            allowing your CS team to intervene proactively.</p>
+                        <ul class="list-unstyled small d-grid gap-2 mb-0">
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> Health Score Modeling</li>
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> Early Warning Alerts</li>
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> Retention Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="solution-card">
+                        <div class="icon-box"><i class="ph-bold ph-target"></i></div>
+                        <h4 class="fw-bold mb-3">ICP Modeling</h4>
+                        <p class="text-muted mb-4">Define your Ideal Customer Profile using data-driven segmentation
+                            rather than guesswork or intuition.</p>
+                        <ul class="list-unstyled small d-grid gap-2 mb-0">
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> Lookalike Modeling</li>
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> TAM/SAM Analysis</li>
+                            <li><i class="ph-bold ph-check text-primary me-2"></i> Fit vs. Intent Scoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Integration Ecosystem -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold mb-4">Built for Your Tech Stack</h2>
+                    <p class="lead text-muted mb-5">We don't believe in another dashboard. Our models push scores
+                        directly into the tools your team already uses every day.</p>
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm"
+                                style="border-left: 4px solid #7A4E38 !important;">
+                                <h6 class="fw-bold mb-2">Salesforce</h6>
+                                <p class="small text-muted mb-0">Full Apex/Flow integration for real-time lead routing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm"
+                                style="border-left: 4px solid #7A4E38 !important;">
+                                <h6 class="fw-bold mb-2">HubSpot</h6>
+                                <p class="small text-muted mb-0">Custom properties synced via API for workflow
+                                    automation.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm"
+                                style="border-left: 4px solid #7A4E38 !important;">
+                                <h6 class="fw-bold mb-2">Zoho CRM</h6>
+                                <p class="small text-muted mb-0">Deluge-based triggers for instant score updates.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm"
+                                style="border-left: 4px solid #7A4E38 !important;">
+                                <h6 class="fw-bold mb-2">REST API</h6>
+                                <p class="small text-muted mb-0">Custom endpoints for proprietary internal databases.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="p-5 bg-dark rounded-4 text-white">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-primary p-2 rounded-3"><i class="ph-bold ph-code fs-4"></i></div>
+                            <h5 class="fw-bold mb-0">Developer Friendly</h5>
+                        </div>
+                        <pre class="bg-black bg-opacity-50 p-4 rounded-3 text-primary small mb-0 overflow-hidden">
+<code>{
+  "lead_id": "L-99821",
+  "score": 94.2,
+  "tier": "A",
+  "drivers": [
+    "Web Intent: High",
+    "Title: VP Sales",
+    "Company Size: 500+"
+  ]
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Modeling Process -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-7">
+                    <h2 class="fw-bold">How We Build Your Model</h2>
+                    <p class="text-muted">A structured, data-science led approach to predictive modeling.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="process-step mb-5" data-aos="fade-up">
+                        <div class="step-number">1</div>
+                        <h5 class="fw-bold">Historical Data Audit</h5>
+                        <p class="text-muted">We analyze your last 24 months of winning and losing deals to identify the
+                            baseline conversion signals hidden in your CRM.</p>
+                    </div>
+                    <div class="process-step mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">2</div>
+                        <h5 class="fw-bold">Feature Engineering</h5>
+                        <p class="text-muted">We transform raw data points into predictive features (e.g., converting
+                            'Location' into 'Timezone Fit' or 'Title' into 'Buying Power Index').</p>
+                    </div>
+                    <div class="process-step mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">3</div>
+                        <h5 class="fw-bold">Training & Hyperparameter Tuning</h5>
+                        <p class="text-muted">We train multiple models (XGBoost, Random Forest, etc.) and perform
+                            rigorous cross-validation to ensure high AUC scores and zero overfitting.</p>
+                    </div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">4</div>
+                        <h5 class="fw-bold">Deployment & Feedback Loop</h5>
+                        <p class="text-muted">The model is deployed via API to your CRM. We monitor initial performance
+                            and retrain the model as new sales outcomes are recorded.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Performance Metrics -->
+    <section class="section-padding bg-dark text-white">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3" data-aos="zoom-in">
+                    <div class="display-4 fw-bold text-primary mb-2">91%</div>
+                    <p class="small opacity-75 mb-0">Avg Model AUC</p>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="display-4 fw-bold text-primary mb-2">40%</div>
+                    <p class="small opacity-75 mb-0">Faster Sales Cycle</p>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="display-4 fw-bold text-primary mb-2">2.8x</div>
+                    <p class="small opacity-75 mb-0">Conversion Uplift</p>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="display-4 fw-bold text-primary mb-2">$0</div>
+                    <p class="small opacity-75 mb-0">Setup License Fees</p>
+                </div>
+            </div>
+            <div class="mt-5 text-center" data-aos="fade-up">
+                <a href="contact.html" class="btn btn-primary btn-lg px-5 py-3">Book Your Feasibility Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white border-top border-white border-opacity-10">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2 mb-4" href="#">
+                        <div class="bg-primary text-white p-2 rounded-3 d-flex">
+                            <i class="ph-bold ph-chart-line-up fs-4"></i>
+                        </div>
+                        <span class="fw-bold fs-4 text-white">Scorelytics</span>
+                    </a>
+                    <p class="text-light opacity-50 small pe-lg-5">Predictive Lead Scoring & Revenue Intelligence for
+                        modern B2B sales organizations.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-linkedin-logo"></i></a>
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-github-logo"></i></a>
+                        <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i
+                                class="ph-fill ph-twitter-logo"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Solutions</h6>
+                    <ul class="list-unstyled d-grid gap-2 small opacity-75">
+                        <li><a href="solutions.html" class="text-white">Lead Scoring</a></li>
+                        <li><a href="solutions.html" class="text-white">Churn Prediction</a></li>
+                        <li><a href="solutions.html" class="text-white">ICP Analysis</a></li>
+                        <li><a href="solutions.html" class="text-white">API Integration</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="fw-bold mb-4">Company</h6>
+                    <ul class="list-unstyled d-grid gap-2 small opacity-75">
+                        <li><a href="about.html" class="text-white">About Marcus</a></li>
+                        <li><a href="pricing.html" class="text-white">Pricing</a></li>
+                        <li><a href="blog.html" class="text-white">Blog</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6 class="fw-bold mb-4">Weekly Insights</h6>
+                    <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
+                    <form class="d-flex gap-2">
+                        <input type="email"
+                            class="form-control bg-transparent border-white border-opacity-20 text-white"
+                            placeholder="Email address">
+                        <button class="btn btn-primary">Join</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-5 border-white border-opacity-10">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="small opacity-50 mb-0">&copy; 2026 Scorelytics Data Science.</p>
+                </div>
+                <div class="col-md-6 text-md-end d-flex align-items-center justify-content-md-end gap-4">
+                    <ul class="list-inline mb-0 small opacity-50">
+                        <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li class="list-inline-item mx-3"><a href="#" class="text-white">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white" id="rtl-toggle">RTL Mode</a></li>
+                    </ul>
+                    <button id="scroll-top" class="ms-3" title="Go to top">
+                        <i class="ph-bold ph-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+
+</html>
