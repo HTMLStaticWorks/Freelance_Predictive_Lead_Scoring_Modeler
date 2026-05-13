@@ -132,13 +132,28 @@
             border-radius: 24px;
             z-index: -1;
         }
+
+        @media (max-width: 768px) {
+            .about-image-wrapper::before {
+                display: none;
+            }
+
+            .hero-section {
+                padding: 120px 0 60px;
+                text-align: center;
+            }
+
+            .hero-section .display-3 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm bg-white">
+    <nav class="navbar navbar-expand-lg fixed-top py-3 shadow-sm bg-white">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
                 <div class="bg-primary text-white p-2 rounded-3 d-flex">
@@ -149,7 +164,7 @@
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar">
-                <i class="ph-bold ph-list fs-2 text-primary"></i>
+                <i class="ph-bold ph-list text-primary"></i><span class="navbar-toggler-icon d-none"></span>
             </button>
 
             <!-- Offcanvas Menu (Slide from Right) -->
@@ -165,31 +180,35 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown home-dropdown d-none d-lg-block">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
                             <ul class="dropdown-menu border-0 shadow-sm">
-                                <li><a class="dropdown-item" href="index.html">Home 1 - Corporate</a></li>
-                                <li><a class="dropdown-item" href="home-2.html">Home 2 - Portfolio</a></li>
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
                             </ul>
+                        </li>
+                        <!-- Mobile Specific Home Links -->
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="index.html">Home 1</a>
+                        </li>
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="home-2.html">Home 2</a>
                         </li>
                         <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
                         <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                         <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
                         <li class="nav-item mt-3 mt-lg-0">
-                            <div class="nav-toggles d-flex align-items-center gap-2">
-                                <a href="dashboard.html" class="nav-icon-btn" title="Dashboard">
-                                    <i class="ph ph-squares-four"></i>
-                                </a>
+                            <div class="nav-toggles d-flex align-items-center gap-2 flex-wrap w-100">
                                 <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme">
                                     <i class="ph ph-moon theme-toggle-icon"></i>
                                 </button>
                                 <button class="nav-icon-btn rtl-toggle-btn" title="Toggle RTL">
                                     <i class="ph ph-arrows-left-right"></i>
                                 </button>
-                                <a href="signup.html" class="btn btn-primary ms-lg-2 px-4">Signup</a>
+                                <a href="signup.html" class="btn btn-primary w-100 mt-2 mt-lg-0 ms-lg-2 px-4">Signup</a>
                             </div>
                         </li>
                     </ul>
@@ -217,7 +236,7 @@
     <section class="section-padding">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-lg-5" data-aos="fade-right">
+                <div class="col-lg-5" data-aos="fade-up">
                     <div class="about-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600"
                             alt="Marcus Thornfield" class="img-fluid rounded-4 shadow-lg mission-img">
@@ -229,7 +248,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7" data-aos="fade-left">
+                <div class="col-lg-7" data-aos="fade-up">
                     <h2 class="display-5 fw-bold mb-4">A Mission to <span class="text-primary">Quantify Success</span>
                     </h2>
                     <p class="lead text-muted mb-4">With a background as an ML Engineer at top-tier SaaS firms, I
@@ -243,7 +262,7 @@
                             <h4 class="fw-bold mb-0 text-primary">45+</h4>
                             <p class="small text-muted mb-0">Models Deployed</p>
                         </div>
-                        <div class="col-sm-6 border-start ps-4">
+                        <div class="col-sm-6">
                             <h4 class="fw-bold mb-0 text-primary">$25M+</h4>
                             <p class="small text-muted mb-0">Pipeline Influenced</p>
                         </div>
@@ -303,24 +322,24 @@
         <div class="container">
             <h2 class="text-center fw-bold mb-5">The Data-First Methodology</h2>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="p-5 border rounded-4 h-100 bg-white shadow-sm">
+                <div class="col-lg-4 col-md-12" data-aos="fade-up">
+                    <div class="p-5 border rounded-4 h-100 bg-white shadow-sm text-center">
                         <div class="display-3 fw-bold text-primary opacity-10 mb-3">01</div>
                         <h5 class="fw-bold mb-3">Data Audit</h5>
                         <p class="text-muted small mb-0">A diagnostic phase to identify high-signal CRM fields and
                             resolve data hygiene issues before modeling begins.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-5 border rounded-4 h-100 bg-white shadow-sm">
+                <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-5 border rounded-4 h-100 bg-white shadow-sm text-center">
                         <div class="display-3 fw-bold text-primary opacity-10 mb-3">02</div>
                         <h5 class="fw-bold mb-3">Feature Engineering</h5>
                         <p class="text-muted small mb-0">Transforming raw user behavior and demographic data into
                             actionable predictive features like "Intent Velocity."</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-5 border rounded-4 h-100 bg-white shadow-sm">
+                <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-5 border rounded-4 h-100 bg-white shadow-sm text-center">
                         <div class="display-3 fw-bold text-primary opacity-10 mb-3">03</div>
                         <h5 class="fw-bold mb-3">Deployment</h5>
                         <p class="text-muted small mb-0">Integrating the final model via API so that scores update in
@@ -345,7 +364,7 @@
     <footer class="py-5 bg-dark text-white border-top border-white border-opacity-10">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <a class="navbar-brand d-flex align-items-center gap-2 mb-4" href="#">
                         <div class="bg-primary text-white p-2 rounded-3 d-flex">
                             <i class="ph-bold ph-chart-line-up fs-4"></i>
@@ -363,7 +382,7 @@
                                 class="ph-fill ph-twitter-logo"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Solutions</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="solutions.html" class="text-white">Lead Scoring</a></li>
@@ -372,7 +391,7 @@
                         <li><a href="solutions.html" class="text-white">API Integration</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Company</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="about.html" class="text-white">About Marcus</a></li>
@@ -381,7 +400,7 @@
                         <li><a href="contact.html" class="text-white">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <h6 class="fw-bold mb-4">Weekly Insights</h6>
                     <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
                     <form class="d-flex gap-2">
@@ -406,12 +425,11 @@
                 </div>
             </div>
         </div>
+        <!-- Scroll Top -->
+        <button id="scroll-top" title="Go to top">
+            <i class="ph-bold ph-arrow-up"></i>
+        </button>
     </footer>
-
-    <!-- Scroll Top -->
-    <button id="scroll-top" title="Go to top">
-        <i class="ph-bold ph-arrow-up"></i>
-    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

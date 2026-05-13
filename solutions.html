@@ -126,23 +126,34 @@
         [data-theme="dark"] .step-number {
             color: var(--bg-light) !important;
         }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 120px 0 60px;
+                text-align: center;
+            }
+
+            .hero-section .display-3 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-transparent">
+    <nav class="navbar navbar-expand-lg fixed-top py-3 shadow-sm bg-white">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
                 <div class="bg-primary text-white p-2 rounded-3 d-flex">
                     <i class="ph-bold ph-chart-line-up fs-4"></i>
                 </div>
-                <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
+                <span class="fw-bold fs-4 tracking-tight brand-text text-primary">SCORELYTICS</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar">
-                <i class="ph-bold ph-list fs-2 text-primary"></i>
+                <i class="ph-bold ph-list text-primary"></i><span class="navbar-toggler-icon d-none"></span>
             </button>
 
             <!-- Offcanvas Menu -->
@@ -158,17 +169,19 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
-                        <!-- Mobile/Tablet Home Links (Separate) -->
-                        <li class="nav-item d-lg-none"><a class="nav-link" href="index.html">Home 1 - Corporate</a></li>
-                        <li class="nav-item d-lg-none"><a class="nav-link" href="home-2.html">Home 2 - Portfolio</a></li>
-
-                        <!-- Desktop Home Dropdown -->
-                        <li class="nav-item dropdown d-none d-lg-block">
+                        <li class="nav-item dropdown home-dropdown d-none d-lg-block">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
                             <ul class="dropdown-menu border-0 shadow-sm">
-                                <li><a class="dropdown-item" href="index.html">Home 1 - Corporate</a></li>
-                                <li><a class="dropdown-item" href="home-2.html">Home 2 - Portfolio</a></li>
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
                             </ul>
+                        </li>
+                        <!-- Mobile Specific Home Links -->
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="index.html">Home 1</a>
+                        </li>
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="home-2.html">Home 2</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
@@ -259,7 +272,7 @@
     <section class="section-padding bg-light">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
+                <div class="col-lg-6" data-aos="fade-up">
                     <h2 class="display-5 fw-bold mb-4">Built for Your Tech Stack</h2>
                     <p class="lead text-muted mb-5">We don't believe in another dashboard. Our models push scores
                         directly into the tools your team already uses every day.</p>
@@ -297,7 +310,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6" data-aos="fade-up">
                     <div class="p-5 bg-dark rounded-4 text-white">
                         <div class="d-flex align-items-center gap-3 mb-4">
                             <div class="bg-primary p-2 rounded-3"><i class="ph-bold ph-code fs-4"></i></div>
@@ -391,7 +404,7 @@
     <footer class="py-5 bg-dark text-white border-top border-white border-opacity-10">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <a class="navbar-brand d-flex align-items-center gap-2 mb-4" href="#">
                         <div class="bg-primary text-white p-2 rounded-3 d-flex">
                             <i class="ph-bold ph-chart-line-up fs-4"></i>
@@ -409,7 +422,7 @@
                                 class="ph-fill ph-twitter-logo"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Solutions</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="solutions.html" class="text-white">Lead Scoring</a></li>
@@ -418,7 +431,7 @@
                         <li><a href="solutions.html" class="text-white">API Integration</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Company</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="about.html" class="text-white">About Marcus</a></li>
@@ -427,14 +440,14 @@
                         <li><a href="contact.html" class="text-white">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-md-6 col-lg-4 footer-newsletter">
                     <h6 class="fw-bold mb-4">Weekly Insights</h6>
                     <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
-                    <form class="d-flex gap-2">
-                        <input type="email"
-                            class="form-control bg-transparent border-white border-opacity-20 text-white"
-                            placeholder="Email address">
-                        <button class="btn btn-primary">Join</button>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email address">
+                            <button class="btn btn-primary" type="button">Join</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -443,18 +456,19 @@
                 <div class="col-md-6">
                     <p class="small opacity-50 mb-0">&copy; 2026 Scorelytics Data Science.</p>
                 </div>
-                <div class="col-md-6 text-md-end d-flex align-items-center justify-content-md-end gap-4">
+                <div class="col-md-6 text-md-end">
                     <ul class="list-inline mb-0 small opacity-50">
                         <li class="list-inline-item"><a href="#" class="text-white">Privacy Policy</a></li>
                         <li class="list-inline-item mx-3"><a href="#" class="text-white">Terms of Service</a></li>
                         <li class="list-inline-item"><a href="#" class="text-white" id="rtl-toggle">RTL Mode</a></li>
                     </ul>
-                    <button id="scroll-top" class="ms-3" title="Go to top">
-                        <i class="ph-bold ph-arrow-up"></i>
-                    </button>
                 </div>
             </div>
         </div>
+        <!-- Scroll Top -->
+        <button id="scroll-top" title="Go to top">
+            <i class="ph-bold ph-arrow-up"></i>
+        </button>
     </footer>
 
 

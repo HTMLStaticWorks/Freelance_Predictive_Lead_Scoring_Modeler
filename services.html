@@ -131,13 +131,24 @@
             font-size: 1.5rem;
             margin-bottom: 20px;
         }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 120px 0 60px;
+                text-align: center;
+            }
+
+            .hero-section .display-3 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm bg-white">
+    <nav class="navbar navbar-expand-lg fixed-top py-3 shadow-sm bg-white">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
                 <div class="bg-primary text-white p-2 rounded-3 d-flex">
@@ -148,7 +159,7 @@
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar">
-                <i class="ph-bold ph-list fs-2 text-primary"></i>
+                <i class="ph-bold ph-list text-primary"></i><span class="navbar-toggler-icon d-none"></span>
             </button>
 
             <!-- Offcanvas Menu (Slide from Right) -->
@@ -164,31 +175,35 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown home-dropdown d-none d-lg-block">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
                             <ul class="dropdown-menu border-0 shadow-sm">
-                                <li><a class="dropdown-item" href="index.html">Home 1 - Corporate</a></li>
-                                <li><a class="dropdown-item" href="home-2.html">Home 2 - Portfolio</a></li>
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
                             </ul>
+                        </li>
+                        <!-- Mobile Specific Home Links -->
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="index.html">Home 1</a>
+                        </li>
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="home-2.html">Home 2</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
                         <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                         <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
                         <li class="nav-item mt-3 mt-lg-0">
-                            <div class="nav-toggles d-flex align-items-center gap-2">
-                                <a href="dashboard.html" class="nav-icon-btn" title="Dashboard">
-                                    <i class="ph ph-squares-four"></i>
-                                </a>
+                            <div class="nav-toggles d-flex align-items-center gap-2 flex-wrap w-100">
                                 <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme">
                                     <i class="ph ph-moon theme-toggle-icon"></i>
                                 </button>
                                 <button class="nav-icon-btn rtl-toggle-btn" title="Toggle RTL">
                                     <i class="ph ph-arrows-left-right"></i>
                                 </button>
-                                <a href="signup.html" class="btn btn-primary ms-lg-2 px-4">Signup</a>
+                                <a href="signup.html" class="btn btn-primary w-100 mt-2 mt-lg-0 ms-lg-2 px-4">Signup</a>
                             </div>
                         </li>
                     </ul>
@@ -315,7 +330,7 @@
     <section class="section-padding">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
+                <div class="col-lg-6" data-aos="fade-up">
                     <span class="badge bg-primary text-white expertise-badge mb-3 px-3 py-2 rounded-pill">Why
                         Scorelytics?</span>
                     <h2 class="display-5 fw-bold mb-4">Data Science Built for <span class="text-primary">Sales
@@ -346,7 +361,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6" data-aos="fade-up">
                     <div class="bg-dark p-5 rounded-4 text-white shadow-lg">
                         <h4 class="fw-bold mb-4">Methodology Snapshot</h4>
                         <div class="table-responsive">
@@ -387,7 +402,7 @@
     <footer class="py-5 bg-dark text-white border-top border-white border-opacity-10">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <a class="navbar-brand d-flex align-items-center gap-2 mb-4" href="#">
                         <div class="bg-primary text-white p-2 rounded-3 d-flex">
                             <i class="ph-bold ph-chart-line-up fs-4"></i>
@@ -405,7 +420,7 @@
                                 class="ph-fill ph-twitter-logo"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Solutions</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="solutions.html" class="text-white">Lead Scoring</a></li>
@@ -414,7 +429,7 @@
                         <li><a href="solutions.html" class="text-white">API Integration</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Company</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="about.html" class="text-white">About Marcus</a></li>
@@ -423,14 +438,14 @@
                         <li><a href="contact.html" class="text-white">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-md-6 col-lg-4 footer-newsletter">
                     <h6 class="fw-bold mb-4">Weekly Insights</h6>
                     <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
-                    <form class="d-flex gap-2">
-                        <input type="email"
-                            class="form-control bg-transparent border-white border-opacity-20 text-white"
-                            placeholder="Email address">
-                        <button class="btn btn-primary">Join</button>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email address">
+                            <button class="btn btn-primary" type="button">Join</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -448,12 +463,11 @@
                 </div>
             </div>
         </div>
+        <!-- Scroll Top -->
+        <button id="scroll-top" title="Go to top">
+            <i class="ph-bold ph-arrow-up"></i>
+        </button>
     </footer>
-
-    <!-- Scroll Top -->
-    <button id="scroll-top" title="Go to top">
-        <i class="ph-bold ph-arrow-up"></i>
-    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -461,10 +475,6 @@
     <script>
         AOS.init({ duration: 1000, once: true });
     </script>
-</body>
-
-</html>
-</script>
 </body>
 
 </html>

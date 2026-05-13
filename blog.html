@@ -21,11 +21,18 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @media (max-width: 768px) {
+            .display-4 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top py-3">
+    <nav class="navbar navbar-expand-lg fixed-top py-3 shadow-sm bg-white">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
                 <div class="bg-primary text-white p-2 rounded-3 d-flex">
@@ -38,12 +45,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center gap-3">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown home-dropdown d-none d-lg-block">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="index.html">Home 1 - Corporate</a></li>
-                            <li><a class="dropdown-item" href="home-2.html">Home 2 - Portfolio</a></li>
+                            <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                            <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
                         </ul>
+                    </li>
+                    <!-- Mobile Specific Home Links -->
+                    <li class="nav-item mobile-home-link d-lg-none">
+                        <a class="nav-link" href="index.html">Home 1</a>
+                    </li>
+                    <li class="nav-item mobile-home-link d-lg-none">
+                        <a class="nav-link" href="home-2.html">Home 2</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
@@ -148,7 +162,7 @@
                 </div>
 
                 <!-- Sidebar -->
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="p-4 bg-primary text-white rounded-4 mb-4">
                         <h5 class="fw-bold mb-3">Free Resource</h5>
                         <p class="small opacity-75 mb-4">Download the Lead Scoring Readiness Checklist (PDF) for your sales team.</p>
@@ -171,7 +185,7 @@
     <footer class="py-5 bg-dark text-white border-top border-white border-opacity-10">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <a class="navbar-brand d-flex align-items-center gap-2 mb-4" href="#">
                         <div class="bg-primary text-white p-2 rounded-3 d-flex">
                             <i class="ph-bold ph-chart-line-up fs-4"></i>
@@ -185,7 +199,7 @@
                         <a href="#" class="text-white opacity-50 hover-opacity-100 fs-4"><i class="ph-fill ph-twitter-logo"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Solutions</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="services.html" class="text-white">Lead Scoring</a></li>
@@ -194,7 +208,7 @@
                         <li><a href="services.html" class="text-white">API Integration</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                     <h6 class="fw-bold mb-4">Company</h6>
                     <ul class="list-unstyled d-grid gap-2 small opacity-75">
                         <li><a href="about.html" class="text-white">About Marcus</a></li>
@@ -203,7 +217,7 @@
                         <li><a href="contact.html" class="text-white">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <h6 class="fw-bold mb-4">Weekly Insights</h6>
                     <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
                     <form class="d-flex gap-2">
@@ -226,12 +240,11 @@
                 </div>
             </div>
         </div>
+        <!-- Scroll Top -->
+        <button id="scroll-top" title="Go to top">
+            <i class="ph-bold ph-arrow-up"></i>
+        </button>
     </footer>
-
-    <!-- Scroll Top -->
-    <button id="scroll-top" title="Go to top">
-        <i class="ph-bold ph-arrow-up"></i>
-    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>

@@ -45,6 +45,75 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const addMobileHomeLinks = () => {
+        document.querySelectorAll('.navbar .nav-item.dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('.nav-link.dropdown-toggle');
+            if (!toggle || toggle.textContent.trim() !== 'Home') return;
+            dropdown.classList.add('home-dropdown');
+            const parent = dropdown.parentElement;
+            if (parent && parent.querySelector('.mobile-home-link')) return;
+            const items = Array.from(dropdown.querySelectorAll('.dropdown-item'));
+            // Only add the second item (Home 2) as a separate link
+            if (items.length > 1) {
+                const item = items[1];
+                const li = document.createElement('li');
+                li.className = 'nav-item d-lg-none mobile-home-link';
+                const anchor = document.createElement('a');
+                anchor.className = 'nav-link';
+                anchor.href = item.href;
+                anchor.textContent = item.textContent.trim();
+                li.appendChild(anchor);
+                dropdown.insertAdjacentElement('afterend', li);
+            }
+        });
+        
+        // Highlight active mobile home link
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.mobile-home-link .nav-link').forEach(link => {
+            const href = link.getAttribute('href').split('/').pop();
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+
+    const originalParentByNode = new WeakMap();
+    const originalNextSiblingByNode = new WeakMap();
+    const moveNavTogglesToCollapse = () => {
+        document.querySelectorAll('.navbar .nav-toggles').forEach(toggles => {
+            const navbar = toggles.closest('.navbar');
+            const collapse = navbar?.querySelector('.navbar-collapse');
+            if (!collapse) return;
+
+            if (window.innerWidth <= 1024) {
+                if (!collapse.contains(toggles)) {
+                    originalParentByNode.set(toggles, toggles.parentElement);
+                    originalNextSiblingByNode.set(toggles, toggles.nextSibling);
+                    collapse.appendChild(toggles);
+                }
+            } else {
+                if (collapse.contains(toggles) && originalParentByNode.has(toggles)) {
+                    const originalParent = originalParentByNode.get(toggles);
+                    const originalNextSibling = originalNextSiblingByNode.get(toggles);
+                    if (originalNextSibling && originalParent.contains(originalNextSibling)) {
+                        originalParent.insertBefore(toggles, originalNextSibling);
+                    } else {
+                        originalParent.appendChild(toggles);
+                    }
+                }
+            }
+        });
+    };
+
+    const updateResponsiveNav = () => {
+        addMobileHomeLinks();
+        moveNavTogglesToCollapse();
+    };
+
+    updateResponsiveNav();
+    window.addEventListener('resize', updateResponsiveNav);
+
     rtlToggles.forEach(toggle => {
         toggle.addEventListener('click', toggleRTL);
     });

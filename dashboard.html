@@ -54,12 +54,13 @@
 
     <div class="dashboard-wrapper">
         <!-- Mobile Header (Sticky) -->
-        <header class="mobile-header d-lg-none px-4 py-3 bg-black text-white border-bottom border-white border-opacity-10 d-flex justify-content-between align-items-center">
+        <header
+            class="mobile-header d-lg-none px-4 py-3 bg-black text-white border-bottom border-white border-opacity-10 d-flex justify-content-between align-items-center">
             <a class="d-flex align-items-center gap-2 text-decoration-none" href="index.html">
                 <div class="bg-primary text-white p-1 rounded-2 d-flex">
                     <i class="ph-bold ph-chart-line-up fs-5"></i>
                 </div>
-                <span class="fw-bold fs-5 tracking-tight text-white">SCORELYTICS</span>
+                <span class="fw-bold fs-5 tracking-tight text-primary">SCORELYTICS</span>
             </a>
             <button id="sidebarMobileToggle" class="btn text-white p-0">
                 <i class="ph-bold ph-list fs-2"></i>
@@ -83,9 +84,21 @@
                 <a href="#accuracy" class="nav-link"><i class="ph ph-graph"></i> <span>Model Accuracy</span></a>
                 <a href="#leads" class="nav-link"><i class="ph ph-users-three"></i> <span>Lead Prioritization</span></a>
                 <a href="#settings" class="nav-link"><i class="ph ph-gear"></i> <span>Settings</span></a>
+                <div class="admin-sidebar-info d-flex align-items-center gap-3 px-4 py-2 mb-3">
+                    <img src="https://i.pravatar.cc/100?u=marcus"
+                        class="rounded-circle border border-white border-opacity-10" width="32" height="32"
+                        alt="Avatar">
+                    <div class="overflow-hidden flex-grow-1">
+                        <div class="small fw-bold text-white text-truncate">Marcus T.</div>
+                        <div class="xsmall opacity-50 text-truncate" style="color: #fff !important;">Admin</div>
+                    </div>
+                    <a href="index.html" class="text-danger ms-auto" title="Logout">
+                        <i class="ph ph-sign-out fs-5"></i>
+                    </a>
+                </div>
             </nav>
 
-            <div class="p-4 border-top border-white border-opacity-5 mt-auto">
+            <div class="p-4 border-top border-white border-opacity-5 mt-auto d-lg-none">
                 <div class="d-flex gap-2 mb-4">
                     <button class="nav-icon-btn theme-toggle-btn w-50" title="Toggle Theme">
                         <i class="ph ph-moon theme-toggle-icon"></i>
@@ -99,9 +112,10 @@
                         alt="Avatar">
                     <div class="overflow-hidden">
                         <div class="small fw-bold text-white text-truncate">Marcus T.</div>
-                        <div class="xsmall text-muted text-truncate">Admin</div>
+                        <div class="xsmall text-muted text-truncate" style="color: #fff !important;">Admin</div>
                     </div>
-                    <a href="index.html" class="ms-auto text-danger" title="Logout"><i class="ph ph-sign-out fs-5"></i></a>
+                    <a href="index.html" class="ms-auto text-danger" title="Logout"><i
+                            class="ph ph-sign-out fs-5"></i></a>
                 </div>
             </div>
         </aside>
@@ -109,16 +123,22 @@
         <!-- Main Content -->
         <main id="content" class="flex-grow-1 overflow-auto">
             <!-- Mobile Secondary Utility (Not Sticky) -->
-            <div class="d-lg-none bg-black text-white px-4 py-3 mb-4 d-flex justify-content-between align-items-center border-bottom border-white border-opacity-5">
+            <div
+                class="d-lg-none bg-black text-white px-4 py-3 mb-4 d-flex flex-wrap justify-content-between align-items-center border-bottom border-white border-opacity-5">
                 <span class="fw-bold small opacity-75 text-nowrap">Sales Team Portal</span>
-                <div class="d-flex align-items-center gap-3 flex-grow-1 justify-content-end">
-                    <div class="input-group input-group-sm" style="max-width: 150px;">
-                        <input type="text" class="form-control bg-white bg-opacity-10 border-0 text-white" placeholder="Search...">
-                        <span class="input-group-text bg-white bg-opacity-10 border-0 text-white"><i class="ph ph-magnifying-glass"></i></span>
-                    </div>
+                <div class="d-flex align-items-center gap-3">
                     <div class="position-relative">
                         <i class="ph ph-bell fs-5 text-white opacity-75"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5rem; padding: 0.25em 0.4em;">3</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 0.5rem; padding: 0.25em 0.4em;">3</span>
+                    </div>
+                </div>
+                <div class="w-100 mt-3">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control bg-white bg-opacity-10 border-0 text-white"
+                            placeholder="Search...">
+                        <span class="input-group-text bg-white bg-opacity-10 border-0 text-white"><i
+                                class="ph ph-magnifying-glass"></i></span>
                     </div>
                 </div>
             </div>
@@ -130,6 +150,16 @@
                 </div>
                 <div class="d-flex align-items-center gap-3 ms-auto">
                     <div class="d-none d-md-flex align-items-center gap-3">
+                        <div class="d-flex gap-2 me-2">
+                            <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme"
+                                style="width: 35px; height: 35px;">
+                                <i class="ph ph-moon theme-toggle-icon fs-5"></i>
+                            </button>
+                            <button class="nav-icon-btn rtl-toggle-btn" title="Toggle RTL"
+                                style="width: 35px; height: 35px;">
+                                <i class="ph ph-arrows-left-right fs-5"></i>
+                            </button>
+                        </div>
                         <div class="position-relative">
                             <i class="ph ph-bell fs-5 text-muted"></i>
                             <span
@@ -151,7 +181,7 @@
             <div id="overview" class="dashboard-section">
                 <!-- Stats Bar -->
                 <div class="row g-4 mb-5">
-                    <div class="col-md-3">
+                    <div class="col-md-6 col-lg-3">
                         <div class="kpi-card h-100">
                             <div class="small text-muted mb-2">Total Leads Scored</div>
                             <div class="kpi-value">8,400</div>
@@ -160,21 +190,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6 col-lg-3">
                         <div class="kpi-card h-100">
                             <div class="small text-muted mb-2">Model AUC Score</div>
                             <div class="kpi-value text-primary">0.91</div>
                             <div class="mt-2 text-muted small">Validated: May 08, 2026</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6 col-lg-3">
                         <div class="kpi-card h-100">
                             <div class="small text-muted mb-2">Conversion Uplift</div>
                             <div class="kpi-value text-success">3.2x</div>
                             <div class="mt-2 text-muted small">Based on A/B testing</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6 col-lg-3">
                         <div class="kpi-card h-100">
                             <div class="small text-muted mb-2">API Call Volume</div>
                             <div class="kpi-value">142k</div>
@@ -190,7 +220,7 @@
                             <canvas id="conversionChart" height="300"></canvas>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-md-6 col-lg-4">
                         <div class="card border-0 p-4 h-100">
                             <h6 class="fw-bold mb-4">Lead Tier Distribution</h6>
                             <canvas id="distributionChart" height="300"></canvas>
@@ -273,22 +303,30 @@
                 </div>
                 <div class="card border-0 p-4">
                     <h6 class="fw-bold mb-4">Confusion Matrix</h6>
-                    <div class="row g-0 text-center">
-                        <div class="col-3 p-4 bg-light border">
-                            <div class="small opacity-50">True Positive</div>
-                            <div class="h4 fw-bold text-success mb-0">2,410</div>
+                    <div class="row g-2 text-center">
+                        <div class="col-12 col-md-3">
+                            <div class="p-4 bg-light border rounded-3">
+                                <div class="small opacity-50">True Positive</div>
+                                <div class="h4 fw-bold text-success mb-0">2,410</div>
+                            </div>
                         </div>
-                        <div class="col-3 p-4 bg-light border">
-                            <div class="small opacity-50">False Positive</div>
-                            <div class="h4 fw-bold text-danger mb-0">142</div>
+                        <div class="col-12 col-md-3">
+                            <div class="p-4 bg-light border rounded-3">
+                                <div class="small opacity-50">False Positive</div>
+                                <div class="h4 fw-bold text-danger mb-0">142</div>
+                            </div>
                         </div>
-                        <div class="col-3 p-4 bg-light border">
-                            <div class="small opacity-50">True Negative</div>
-                            <div class="h4 fw-bold text-success mb-0">5,620</div>
+                        <div class="col-12 col-md-3">
+                            <div class="p-4 bg-light border rounded-3">
+                                <div class="small opacity-50">True Negative</div>
+                                <div class="h4 fw-bold text-success mb-0">5,620</div>
+                            </div>
                         </div>
-                        <div class="col-3 p-4 bg-light border">
-                            <div class="small opacity-50">False Negative</div>
-                            <div class="h4 fw-bold text-danger mb-0">228</div>
+                        <div class="col-12 col-md-3">
+                            <div class="p-4 bg-light border rounded-3">
+                                <div class="small opacity-50">False Negative</div>
+                                <div class="h4 fw-bold text-danger mb-0">228</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -296,11 +334,12 @@
 
             <!-- Section: Lead List -->
             <div id="leads" class="dashboard-section d-none">
-                <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
                     <h5 class="fw-bold mb-0">Lead Prioritization List</h5>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-primary btn-sm"><i class="ph ph-export"></i> Export CSV</button>
-                        <button class="btn btn-primary btn-sm">Push to CRM</button>
+                    <div class="d-flex flex-column flex-sm-row gap-2">
+                        <button class="btn btn-outline-primary btn-sm w-100 w-sm-auto"><i class="ph ph-export"></i>
+                            Export CSV</button>
+                        <button class="btn btn-primary btn-sm w-100 w-sm-auto">Push to CRM</button>
                     </div>
                 </div>
 
@@ -311,7 +350,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Unscored</a></li>
                 </ul>
 
-                <div class="table-responsive border rounded-3 overflow-hidden">
+                <div class="table-responsive border rounded-3">
                     <table class="table table-custom align-middle mb-0" style="min-width: 800px;">
                         <thead>
                             <tr>
@@ -391,13 +430,11 @@
             </div>
 
         </main>
+        <!-- Scroll Top -->
+        <button id="scroll-top" title="Go to top">
+            <i class="ph-bold ph-arrow-up"></i>
+        </button>
     </div>
-
-    <!-- Scripts -->
-    <!-- Scroll Top -->
-    <button id="scroll-top" title="Go to top">
-        <i class="ph-bold ph-arrow-up"></i>
-    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
