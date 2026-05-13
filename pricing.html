@@ -56,6 +56,8 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
             background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-card:hover {
@@ -169,42 +171,58 @@
                 <div class="bg-primary text-white p-2 rounded-3 d-flex">
                     <i class="ph-bold ph-chart-line-up fs-4"></i>
                 </div>
-                <span class="fw-bold fs-4 tracking-tight">SCORELYTICS</span>
+                <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <i class="ph-bold ph-list text-primary"></i><span class="navbar-toggler-icon d-none"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center gap-3">
-                    <li class="nav-item dropdown home-dropdown d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
-                        <ul class="dropdown-menu border-0 shadow-sm">
-                            <li><a class="dropdown-item" href="index.html">Home 1</a></li>
-                            <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
-                        </ul>
-                    </li>
-                    <!-- Mobile Specific Home Links -->
-                    <li class="nav-item mobile-home-link d-lg-none">
-                        <a class="nav-link" href="index.html">Home 1</a>
-                    </li>
-                    <li class="nav-item mobile-home-link d-lg-none">
-                        <a class="nav-link" href="home-2.html">Home 2</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                </ul>
-                <div class="nav-toggles ms-lg-4">
-                    <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme">
-                        <i class="ph ph-moon theme-toggle-icon"></i>
-                    </button>
-                    <button class="nav-icon-btn rtl-toggle-btn" id="rtl-toggle-header" title="Toggle RTL">
-                        <i class="ph ph-arrows-left-right"></i>
-                    </button>
-                    <a href="signup.html" class="btn btn-primary ms-lg-2">Signup</a>
+
+            <!-- Offcanvas Menu (Slide from Right) -->
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header border-bottom">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <div class="bg-primary text-white p-1 rounded-2 d-flex">
+                            <i class="ph-bold ph-chart-line-up fs-6"></i>
+                        </div>
+                        <span class="fw-bold fs-4 tracking-tight brand-text">SCORELYTICS</span>
+                    </a>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
+                        <li class="nav-item dropdown home-dropdown d-none d-lg-block">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+                            <ul class="dropdown-menu border-0 shadow-sm">
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
+                            </ul>
+                        </li>
+                        <!-- Mobile Specific Home Links -->
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="index.html">Home 1</a>
+                        </li>
+                        <li class="nav-item mobile-home-link d-lg-none">
+                            <a class="nav-link" href="home-2.html">Home 2</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                        <li class="nav-item mt-3 mt-lg-0">
+                            <div class="nav-toggles d-flex align-items-center gap-2 flex-wrap w-100">
+                                <button class="nav-icon-btn theme-toggle-btn" title="Toggle Theme">
+                                    <i class="ph ph-moon theme-toggle-icon"></i>
+                                </button>
+                                <button class="nav-icon-btn rtl-toggle-btn" title="Toggle RTL">
+                                    <i class="ph ph-arrows-left-right"></i>
+                                </button>
+                                <a href="signup.html" class="btn btn-primary w-100 mt-2 mt-lg-0 ms-lg-2 px-4">Signup</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -231,8 +249,8 @@
         <div class="container">
             <div class="row g-4 justify-content-center">
                 <!-- Starter -->
-                <div class="col-lg-4" data-aos="fade-up">
-                    <div class="pricing-card h-100 p-4 p-md-5 text-center">
+                <div class="col-xl-4 col-lg-12 col-md-12 d-flex" data-aos="fade-up">
+                    <div class="pricing-card h-100 p-4 p-md-5 text-center w-100">
                         <div class="small fw-bold text-muted text-uppercase mb-4">Starter</div>
                         <div class="mb-4">
                             <span class="display-5 fw-bold">$1,800</span>
@@ -254,8 +272,8 @@
                     </div>
                 </div>
                 <!-- Growth -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="pricing-card featured h-100 p-4 p-md-5 text-center">
+                <div class="col-xl-4 col-lg-12 col-md-12 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card featured h-100 p-4 p-md-5 text-center w-100">
                         <div class="featured-badge">MOST POPULAR</div>
                         <div class="small fw-bold text-primary text-uppercase mb-4">Growth</div>
                         <div class="mb-4">
@@ -277,8 +295,8 @@
                     </div>
                 </div>
                 <!-- Enterprise -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pricing-card h-100 p-4 p-md-5 text-center">
+                <div class="col-xl-4 col-lg-12 col-md-12 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-card h-100 p-4 p-md-5 text-center w-100">
                         <div class="small fw-bold text-muted text-uppercase mb-4">Enterprise</div>
                         <div class="mb-4">
                             <span class="display-5 fw-bold">Custom</span>
