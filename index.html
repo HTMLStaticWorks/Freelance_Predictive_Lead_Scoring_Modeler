@@ -34,7 +34,9 @@
 
     <style>
         .hero-section {
-            background: #7A4E38;
+            background: linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.35)), url('assets/images/home1-hero.jpg');
+            background-size: cover;
+            background-position: center;
             padding: 160px 0 100px;
             color: white;
             position: relative;
@@ -88,6 +90,18 @@
             object-fit: cover;
             border-radius: 16px;
             margin-bottom: 24px;
+        }
+
+        /* Semi-opaque panel for hero content to improve contrast */
+        .hero-panel {
+            background: rgba(0,0,0,0.65);
+            padding: 28px 28px 24px;
+            border-radius: 12px;
+            display: inline-block;
+            max-width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            position: relative;
+            z-index: 2;
         }
 
         .service-card-img {
@@ -221,22 +235,18 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container position-relative z-1">
-            <div class="row align-items-center">
-                <div class="col-lg-7" data-aos="fade-up">
-                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill mb-3 fw-bold">Predictive
-                        Intelligence</span>
-                    <h1 class="display-3 fw-bold mb-4 text-white">Lead Scoring Built on Actual Outcomes</h1>
-                    <p class="lead text-white mb-5 opacity-75">Stop guessing which leads will close. We build custom
-                        machine learning models that rank your pipeline with 90%+ accuracy, directly inside your CRM.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-                        <a href="contact.html" class="btn btn-outline-light btn-lg">Request a Free Audit</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="hero-image-wrapper">
-                        <img src="assets/images/home1-hero.jpg" alt="Lead Scoring Dashboard"
-                            class="img-fluid rounded-4 shadow-lg">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <div class="hero-panel text-center mx-auto">
+                        <span class="badge bg-white text-primary px-3 py-2 rounded-pill mb-3 fw-bold">Predictive
+                            Intelligence</span>
+                        <h1 class="display-3 fw-bold mb-4 text-white">Lead Scoring Built on Actual Outcomes</h1>
+                        <p class="lead text-white mb-5 opacity-75">Stop guessing which leads will close. We build custom
+                            machine learning models that rank your pipeline with 90%+ accuracy, directly inside your CRM.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center">
+                            <a href="contact.html" class="btn btn-outline-light btn-lg">Request a Free Audit</a>
+                        </div>
                     </div>
                 </div>
             </div>

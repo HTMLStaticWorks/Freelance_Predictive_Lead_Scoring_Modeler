@@ -3,10 +3,10 @@
 */
 
 [data-theme='dark'] {
-    --bg-light: #020617;
-    --bg-white: #020617;
-    --bg-dark: #020617;
-    --bg-card: #0F172A;
+    --bg-light: #000000;
+    --bg-white: #000000;
+    --bg-dark: #000000;
+    --bg-card: #0b0b0b;
 
     --text-main: #F8FAFC;
     --text-muted: #CBD5E1;
@@ -36,4 +36,9 @@
 
 [data-theme='dark'] .text-muted {
     color: var(--text-muted) !important;
+}
+
+/* Make sections using .bg-light slightly lighter than pure black for contrast */
+[data-theme='dark'] .bg-light {
+    background-color: #0b0b0b !important;
 }
