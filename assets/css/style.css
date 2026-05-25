@@ -291,7 +291,7 @@ a {
 
 /* Keep brand-text consistent */
 [data-theme="dark"] .brand-text {
-    color: #7E533E !important;
+    color: #FFFFFF !important;
 }
 
 .offcanvas {
@@ -654,4 +654,10 @@ footer a:hover {
 [data-theme="dark"] .hero-mono h1,
 [data-theme="dark"] .hero-section h1 {
     color: #FFFFFF !important;
+}
+
+/* Responsive chart helper */
+.chart-responsive {
+    width: 100% !important;
+    height: auto !important;
 }

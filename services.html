@@ -142,6 +142,16 @@
                 font-size: 2.5rem;
             }
         }
+
+        /* Center lead-scoring cards content on tablet and 1024px widths */
+        @media (max-width: 1024px) {
+            .lead-scoring .p-4 {
+                text-align: center;
+            }
+            .lead-scoring .p-4 h5 {
+                margin-bottom: .5rem;
+            }
+        }
     </style>
 </head>
 
@@ -260,7 +270,7 @@
     </section>
 
     <!-- Lead Scoring Workflow -->
-    <section class="section-padding bg-light">
+    <section class="section-padding bg-light lead-scoring">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">How Lead Scoring Works</h2>

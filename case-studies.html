@@ -139,6 +139,15 @@
             opacity: 0.7 !important;
         }
 
+        /* Light mode footer email input visibility — footer stays dark in both themes */
+        [data-theme="light"] .footer-newsletter .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        [data-theme="light"] .footer-newsletter .form-control {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
         @media (max-width: 768px) {
             .hero-section {
                 padding: 120px 0 60px;
@@ -474,7 +483,7 @@
                 <div class="col-md-6 col-lg-4">
                     <h6 class="fw-bold mb-4">Weekly Insights</h6>
                     <p class="small opacity-75 mb-4">Get lead scoring tips and free notebook templates.</p>
-                    <form class="d-flex gap-2">
+                    <form class="d-flex gap-2 footer-newsletter">
                         <input type="email"
                             class="form-control bg-transparent border-white border-opacity-20 text-white"
                             placeholder="Email address">
@@ -495,7 +504,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
         </div>
         <!-- Scroll Top -->
         <button id="scroll-top" title="Go to top">

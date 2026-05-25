@@ -308,6 +308,8 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            text-align: center;
+            align-items: center;
         }
 
         .feature-icon {
@@ -360,6 +362,16 @@
 
         @media (max-width: 991px) {
             .feature-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Center the 3rd feature card on tablet widths */
+        @media (max-width: 991px) and (min-width: 576px) {
+            .feature-grid > .feature-card:nth-child(3) {
+                grid-column: 1 / -1;
+                width: 70%;
+                margin: 0 auto;
+                justify-self: center;
+            }
         }
 
         @media (max-width: 576px) {

@@ -425,8 +425,7 @@
                 </div>
                 <div class="col-lg-7" data-aos="fade-up">
                     <div class="card card-custom p-4 border-0">
-                        <canvas id="featureImportanceChartHome" width="872" height="436"
-                            style="display: block; box-sizing: border-box; height: 349px; width: 698px;"></canvas>
+                        <canvas id="featureImportanceChartHome" class="chart-responsive"></canvas>
                     </div>
                 </div>
             </div>
@@ -587,7 +586,36 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- More FAQs can be added here -->
+                        <div class="accordion-item card card-custom border-0 mb-3 overflow-hidden">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    What data do you need to get started?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    A historical export of your CRM (deals/opportunities) with outcome labels and
+                                    basic contact/account fields is sufficient to begin an audit and feasibility
+                                    analysis.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item card card-custom border-0 mb-3 overflow-hidden">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Will this integrate with our CRM?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes — models can be deployed via API or native connectors. We provide field mapping
+                                    and sample payloads for Salesforce, HubSpot, and common platforms.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

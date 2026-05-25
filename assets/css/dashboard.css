@@ -175,7 +175,11 @@
     font-weight: 700 !important;
 }
 
-[data-theme="dark"] .dashboard-wrapper,
+/* Dark mode backgrounds: pure black wrapper, dark grey cards */
+[data-theme="dark"] .dashboard-wrapper {
+    background-color: #000000 !important;
+}
+
 [data-theme="dark"] #content {
     background-color: #000000 !important;
 }
@@ -185,8 +189,8 @@
 [data-theme="dark"] .table-custom,
 [data-theme="dark"] .table,
 [data-theme="dark"] .bg-body {
-    background-color: #111827 !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
+    background-color: #1a1a1a !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
     color: #FFFFFF !important;
 }
 
@@ -205,7 +209,7 @@
 }
 
 [data-theme="dark"] .table-custom th {
-    background-color: #1F2937 !important;
+    background-color: #262626 !important;
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
@@ -222,13 +226,13 @@
 [data-theme="dark"] .input-group-text,
 [data-theme="dark"] .form-control,
 [data-theme="dark"] .form-select {
-    background-color: #1F2937 !important;
+    background-color: #262626 !important;
     border-color: rgba(255, 255, 255, 0.1) !important;
     color: white !important;
 }
 
 [data-theme="dark"] .bg-light {
-    background-color: #1F2937 !important;
+    background-color: #1a1a1a !important;
 }
 
 .admin-sidebar-info {
@@ -242,4 +246,30 @@
 
 .mt-n2 {
     margin-top: -0.5rem;
+}
+
+/* Place dashboard scroll-top consistently at bottom-right */
+#scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Improve numeric clarity in dark mode for KPI and metric numbers */
+[data-theme="dark"] .kpi-value,
+[data-theme="dark"] .card .h4.fw-bold,
+[data-theme="dark"] .card .h2.fw-bold,
+[data-theme="dark"] .kpi-card .kpi-value {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-weight: 800 !important;
+    text-shadow: none !important;
+}
+
+/* Ensure Chart.js canvases are responsive inside cards */
+.card canvas,
+.chart-responsive,
+#content canvas {
+    width: 100% !important;
+    height: auto !important;
 }
